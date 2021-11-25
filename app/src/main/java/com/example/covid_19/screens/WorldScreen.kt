@@ -9,6 +9,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -20,12 +21,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.example.covid_19.BottomNavBar
 import com.example.covid_19.CovidViewModel
 import com.example.covid_19.R
 
 @Composable
-fun MainScreen() {
-//fun MainScreen(navController: NavController) {
+fun WorldScreen(navController: NavController) {
     val viewModel = CovidViewModel()
     viewModel.getTotal()
     Column(
@@ -74,7 +76,7 @@ fun MainScreen() {
                         modifier = Modifier
                             .height(200.dp)
                             .weight(1f)
-                            .padding(10.dp),
+                            .padding(start = 10.dp, top = 10.dp, end = 10.dp),
                         elevation = 10.dp,
                         border = BorderStroke(1.dp, Color.White),
                         shape = RoundedCornerShape(8.dp)
@@ -87,7 +89,7 @@ fun MainScreen() {
                             Box(
                                 modifier = Modifier
                                     .size(100.dp)
-                                    .padding(5.dp)
+//                                    .padding(5.dp)
                                     .clip(CircleShape)
                                     .background(Color.Yellow)
                             ){
@@ -104,7 +106,7 @@ fun MainScreen() {
                         modifier = Modifier
                             .height(200.dp)
                             .weight(1f)
-                            .padding(10.dp),
+                            .padding(start = 10.dp, top = 10.dp, end = 10.dp),
                         elevation = 10.dp,
                         border = BorderStroke(1.dp, Color.White),
                         shape = RoundedCornerShape(8.dp)
@@ -140,7 +142,7 @@ fun MainScreen() {
                         modifier = Modifier
                             .height(200.dp)
                             .weight(1f)
-                            .padding(10.dp),
+                            .padding(start = 10.dp, top = 10.dp, end = 10.dp),
                         elevation = 10.dp,
                         border = BorderStroke(1.dp, Color.White),
                         shape = RoundedCornerShape(8.dp)
@@ -160,7 +162,6 @@ fun MainScreen() {
                                     painter = painterResource(id = R.drawable.ic_critical_48),
                                     contentDescription = "check",
                                     modifier = Modifier.align(alignment = Alignment.Center))
-
                             }
                             Text(text = "Critical:", color = Color.White, fontWeight = FontWeight.Bold)
                             Text(text = "${t.critical}", color = Color.White, fontWeight = FontWeight.Bold)
@@ -170,7 +171,7 @@ fun MainScreen() {
                         modifier = Modifier
                             .height(200.dp)
                             .weight(1f)
-                            .padding(10.dp),
+                            .padding(start = 10.dp, top = 10.dp, end = 10.dp),
                         elevation = 10.dp,
                         border = BorderStroke(1.dp, Color.White),
                         shape = RoundedCornerShape(8.dp)
@@ -190,13 +191,20 @@ fun MainScreen() {
                                     painter = painterResource(id = R.drawable.ic_deaths_48),
                                     contentDescription = "check",
                                     modifier = Modifier.align(alignment = Alignment.Center))
-
                             }
                             Text(text = "Deaths:", color = Color.White, fontWeight = FontWeight.Bold)
                             Text(text = "${t.deaths}", color = Color.White, fontWeight = FontWeight.Bold)
                         }
                     }
                 }
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    text = "Last Change: ${t.lastChange}",
+                    color = Color.White,
+                    textAlign = TextAlign.Center
+                )
             }
         }
     }

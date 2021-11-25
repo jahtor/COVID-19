@@ -1,10 +1,9 @@
 package com.example.covid_19
 
 sealed class Screen(val route: String) {
-    object MainScreen : Screen("main_screen")
+    object WorldScreen : Screen("world_screen")
+    object CountriesScreen : Screen("countries_screen")
     object SplashScreen : Screen("slash_screen")
-//    object CardScreen : Screen("card_screen")
-//    object MovieInfo : Screen("movie_info")
 
     fun withArgs(vararg args: String): String {
         return buildString {
