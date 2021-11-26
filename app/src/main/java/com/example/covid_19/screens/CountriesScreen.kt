@@ -1,10 +1,13 @@
 package com.example.covid_19.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.Card
 import androidx.compose.material.Divider
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -80,28 +83,41 @@ fun CountriesScreen(navController: NavController){
             .fillMaxSize()
             .padding(10.dp)) {
             items(viewModel.countriesList) { c ->
-                Column() {
-                    Text(text = "${c.country}", color = Color.White, fontWeight = FontWeight.Bold)
-                    Row(modifier = Modifier.fillMaxWidth()) {
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(text = "Confirmed", color = Color.White)
-                            Text(text = "${c.confirmed}", color = Color.White)
-                        }
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(text = "Recovered", color = Color.White)
-                            Text(text = "${c.recovered}", color = Color.White)
-                        }
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(text = "Critical", color = Color.White)
-                            Text(text = "${c.critical}", color = Color.White)
-                        }
-                        Column(modifier = Modifier.weight(1f)) {
-                            Text(text = "Deaths", color = Color.White)
-                            Text(text = "${c.deaths}", color = Color.White)
+//                Column() {
+                Card(modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 2.dp),
+//                    elevation = 10.dp,
+                    border = BorderStroke(1.dp, Color.LightGray),
+                    backgroundColor = Color(0xFF003c58)
+                ) {
+                    Column(modifier = Modifier.padding(5.dp)) {
+                        Text(
+                            text = "${c.country}",
+                            color = Color.White,
+                            fontWeight = FontWeight.Bold
+                        )
+                        Row(modifier = Modifier.fillMaxWidth()) {
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(text = "Confirmed", color = Color.White)
+                                Text(text = "${c.confirmed}", color = Color.White)
+                            }
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(text = "Recovered", color = Color.White)
+                                Text(text = "${c.recovered}", color = Color.White)
+                            }
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(text = "Critical", color = Color.White)
+                                Text(text = "${c.critical}", color = Color.White)
+                            }
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(text = "Deaths", color = Color.White)
+                                Text(text = "${c.deaths}", color = Color.White)
+                            }
                         }
                     }
                 }
-                Divider(color = Color.White, thickness = 1.dp)
+//                Divider(color = Color.White, thickness = 1.dp)
             }
         }
     }

@@ -7,10 +7,12 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.covid_19.screens.CountriesScreen
 import com.example.covid_19.screens.WorldScreen
@@ -25,9 +27,14 @@ class MainActivity : ComponentActivity() {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
                     val navController = rememberNavController()
+                    // get current Nav position
+//                    val navBackStackEntry by navController.currentBackStackEntryAsState()
+//                    println("navBackStack: " + navBackStackEntry?.destination?.route)
                     Scaffold(
                         bottomBar = {
-                            BottomNavBar(navController = navController)
+//                            if (navBackStackEntry?.destination?.route != "splash_screen") {
+                                BottomNavBar(navController = navController)
+//                            }
                         }
                     ) {
                         Navigation(navController = navController)

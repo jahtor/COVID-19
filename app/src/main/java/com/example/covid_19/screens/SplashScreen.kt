@@ -35,7 +35,7 @@ fun SplashScreen(navController: NavController) {
                 })
         )
         delay(3000L)
-        navController.navigate("main_screen")
+        navController.navigate("world_screen")
     }
     // Image
     Box(contentAlignment = Alignment.Center,

@@ -20,7 +20,6 @@ class CovidViewModel: ViewModel() {
             try {
                 totalList = apiService.getTotal()
 //                println("covidTotalList: $totalList")
-//                println("covidTotalList.value: ${totalList}")
             } catch (e: Exception){
                 errorMessage = e.message.toString()
                 println("getTotal error: $errorMessage")
@@ -35,8 +34,7 @@ class CovidViewModel: ViewModel() {
             val apiService = NetworkModule.getInstance()
             try {
                 countriesList = apiService.getCountries()
-                println("countriesList: $countriesList")
-//                println("covidTotalList.value: ${totalList}")
+//                println("countriesList: $countriesList")
             } catch (e: Exception){
                 errorMessage = e.message.toString()
                 println("getTotal error: $errorMessage")

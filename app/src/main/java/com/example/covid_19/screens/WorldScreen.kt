@@ -9,7 +9,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
-import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -22,7 +21,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import com.example.covid_19.BottomNavBar
 import com.example.covid_19.CovidViewModel
 import com.example.covid_19.R
 
@@ -66,6 +64,9 @@ fun WorldScreen(navController: NavController) {
             fontWeight = FontWeight.Bold
         )
         LazyColumn(modifier = Modifier.fillMaxSize()) {
+//            items(viewModel.totalList) { c ->
+//                Text(text = "${c.lastChange}")
+//            }
             items(viewModel.totalList) { t ->
                 Row(
                     modifier = Modifier
